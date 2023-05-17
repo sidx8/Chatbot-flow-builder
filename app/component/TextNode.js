@@ -1,15 +1,19 @@
 import React from "react";
 import { Handle, Position } from "reactflow";
 
-function TextNode({ data }) {
+function TextNode({ id, data, selected }) {
   return (
-    <div className="w-60 shadow-md rounded-md bg-white border-2 ">
+    <div
+      className={`w-40  shadow-md rounded-md bg-white   ${
+        selected ? "border-solid border-2 border-indigo-500/100" : ""
+      } `}
+    >
       <div className="flex flex-col">
-        <div className="max-h-max px-2 text-left text-black text-lg font-bold bg-teal-300">
+        <div className="max-h-max px-2 py-1 text-left text-black text-xs font-bold rounded-t-md bg-teal-300">
           ✉️ send message
         </div>
-        <div className="px-4 py-2 ml-2">
-          <div className="text-lg font-normal text-black">
+        <div className="px-3 py-2 ">
+          <div className="text-xs font-normal text-black">
             {data.name ?? "Text Node"}
           </div>
         </div>
@@ -17,13 +21,13 @@ function TextNode({ data }) {
 
       <Handle
         type="target"
-        position={Position.Top}
-        className="w-16 bg-red-800"
+        position={Position.Left}
+        className="w-1 rounded-full bg-slate-800"
       />
       <Handle
         type="source"
-        position={Position.Bottom}
-        className="w-16 bg-red-800"
+        position={Position.Right}
+        className="w-1 rounded-full bg-gray-800"
       />
     </div>
   );

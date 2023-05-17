@@ -10,6 +10,9 @@ import ReactFlow, {
   MiniMap,
   Background,
 } from "reactflow";
+import "reactflow/dist/base.css";
+
+import "../tailwind.config.js";
 import Sidebar from "./component/sidebar";
 import TextNode from "./component/TextNode";
 
@@ -30,7 +33,11 @@ const App = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
+  const [selectedNodeId, setSelectedNodeId] = useState(null);
 
+  const onElementClick = useCallback((event, element) => {
+    setSelectedNodeId(element.id);
+  }, []);
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     []
@@ -89,6 +96,8 @@ const App = () => {
             onDrop={onDrop}
             onDragOver={onDragOver}
             style={rfStyle}
+            onElementClick={onElementClick}
+            selectedElements={selectedNodeId ? [selectedNodeId] : []}
             fitView
           >
             <MiniMap />
