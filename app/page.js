@@ -15,6 +15,9 @@ import ReactFlow, {
   useEdgesState,
   Panel,
   useReactFlow,
+  MiniMap,
+  Controls,
+  Background,
 } from "reactflow";
 import "reactflow/dist/base.css";
 
@@ -220,22 +223,27 @@ const App = () => {
             );
           }}
           fitView
-        ></ReactFlow>
+        >
+          <Background variant="dots" gap={12} size={1} />
+          <Controls />
+          <MiniMap zoomable pannable />
+          <Panel>
+            <button
+              className=" m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={onSave}
+            >
+              save flow
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={onRestore}
+            >
+              restore flow
+            </button>
+          </Panel>
+        </ReactFlow>
       </div>
-      <Panel>
-        <button
-          className=" m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={onSave}
-        >
-          save flow
-        </button>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={onRestore}
-        >
-          restore flow
-        </button>
-      </Panel>
+
       <Sidebar
         nodeName={nodeName}
         setNodeName={setNodeName}
