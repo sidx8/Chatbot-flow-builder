@@ -248,6 +248,7 @@ const App = () => {
         nodeName={nodeName}
         setNodeName={setNodeName}
         selectedNode={selectedElements[0]}
+        setSelectedElements={setSelectedElements}
       />
     </div>
   );
