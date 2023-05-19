@@ -1,5 +1,5 @@
 # React Flow Task
-
+![](https://github.com/sidx8/Chatbot-flow-builder/blob/main/public/demo.gif)
 This project is a simple React application built with [React Flow](https://reactflow.dev/) and next.js [live demo](https://chatbot-flow-builder.vercel.app/). It demonstrates the implementation of drag and drop nodes with the ability to connect them. The state of the nodes and their connections can be saved and restored.
 
 ## Features
