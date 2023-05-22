@@ -47,7 +47,7 @@ The project can be deployed on any hosting service that supports Node.js applica
 
 ## Contributing
 
-If you want to contribute to this project, you're always welcome! You can create any pull request, and i will take a look at it.
+If you want to contribute to this project, you're always welcome! You can take a look at [contributing.md](https://github.com/sidx8/Chatbot-flow-builder/blob/main/CONTRIBUTING.md).
 
 ## Support
 
