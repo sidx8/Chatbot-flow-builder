@@ -43,8 +43,6 @@ The application should now be running on http://localhost:3000.
 
 The project can be deployed on any hosting service that supports Node.js applications. Examples of such services include Heroku, Vercel, and Netlify. Please refer to the respective platform's documentation for deploying React applications.
 
-## Testing
-
 ## Contributing
 
 If you want to contribute to this project, you're always welcome! You can take a look at [contributing.md](https://github.com/sidx8/Chatbot-flow-builder/blob/main/CONTRIBUTING.md).
