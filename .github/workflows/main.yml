@@ -1,0 +1,24 @@
+name: Limit PR Line Changes
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check_lines_changed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR Diff Stats
+        id: diff
+        run: |
+          CHANGED_LINES=$(gh pr view ${{ github.event.pull_request.number }} --json additions,deletions --jq '.additions + .deletions')
+          echo "Changed lines: $CHANGED_LINES"
+          echo "CHANGED_LINES=$CHANGED_LINES" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fail if PR is too large
+        if: ${{ env.CHANGED_LINES > 500 }}
+        run: |
+          echo "❌ Pull Request is too large! Limit is 500 lines."
+          exit 1
